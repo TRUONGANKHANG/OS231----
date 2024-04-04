@@ -1,0 +1,362 @@
+HCMC UNIVERSITY OF TECHNOLOGY
+FACULTY OF COMPUTER SCIENCE & ENGINEERING
+__________________________________________
+
+LAP 1
+INTRODUCTION TO LINUX PROGRAMMING
+COURSE: OPERATING SYSTEMS
+___________________________________________
+
+
+FULLNAME: TRUONG AN KHANG
+ID: 2211476
+
+
+
+MARCH 31, 2024
+
+Exercise: Try more options with the ls command and analyze its output. You can also try to combine multiple options into one, ex: -la.
+	The following options are available:
+
+     -@      Display extended attribute keys and sizes in long (-l) output.
+
+     -A      Include directory entries whose names begin with a dot (‘.’) except for . and ...  Automatically set for the super-user unless -I is specified.
+
+     -B      Force printing of non-printable characters (as defined by ctype(3) and current locale settings) in file names as \xxx, where xxx is the numeric
+             value of the character in octal.  This option is not defined in IEEE Std 1003.1-2008 (“POSIX.1”).
+
+     -C      Force multi-column output; this is the default when output is to a terminal.
+
+     -D format
+             When printing in the long (-l) format, use format to format the date and time output.  The argument format is a string used by strftime(3).
+             Depending on the choice of format string, this may result in a different number of columns in the output.  This option overrides the -T option.
+             This option is not defined in IEEE Std 1003.1-2008 (“POSIX.1”).
+
+     -F      Display a slash (‘/’) immediately after each pathname that is a directory, an asterisk (‘*’) after each that is executable, an at sign (‘@’)
+             after each symbolic link, an equals sign (‘=’) after each socket, a percent sign (‘%’) after each whiteout, and a vertical bar (‘|’) after each
+             that is a FIFO.
+
+     -G      Enable colorized output.  This option is equivalent to defining CLICOLOR or COLORTERM in the environment and setting --color=auto.  (See
+             below.)  This functionality can be compiled out by removing the definition of COLORLS.  This option is not defined in IEEE Std 1003.1-2008
+             (“POSIX.1”).
+
+     -H      Symbolic links on the command line are followed.  This option is assumed if none of the -F, -d, or -l options are specified.
+
+     -I      Prevent -A from being automatically set for the super-user.  This option is not defined in IEEE Std 1003.1-2008 (“POSIX.1”).
+
+     -L      Follow all symbolic links to final target and list the file or directory the link references rather than the link itself.  This option cancels
+             the -P option.
+
+     -O      Include the file flags in a long (-l) output.  This option is incompatible with IEEE Std 1003.1-2008 (“POSIX.1”).  See chflags(1) for a list of
+             file flags and their meanings.
+
+     -P      If argument is a symbolic link, list the link itself rather than the object the link references.  This option cancels the -H and -L options.
+
+     -R      Recursively list subdirectories encountered.
+
+     -S      Sort by size (largest file first) before sorting the operands in lexicographical order.
+
+     -T      When printing in the long (-l) format, display complete time information for the file, including month, day, hour, minute, second, and year.
+             The -D option gives even more control over the output format.  This option is not defined in IEEE Std 1003.1-2008 (“POSIX.1”).
+
+     -U      Use time when file was created for sorting or printing.  This option is not defined in IEEE Std 1003.1-2008 (“POSIX.1”).
+
+     -W      Display whiteouts when scanning directories.  This option is not defined in IEEE Std 1003.1-2008 (“POSIX.1”).
+
+     -a      Include directory entries whose names begin with a dot (‘.’).
+
+     -b      As -B, but use C escape codes whenever possible.  This option is not defined in IEEE Std 1003.1-2008 (“POSIX.1”).
+
+     -c      Use time when file status was last changed for sorting or printing.
+
+     --color=when
+             Output colored escape sequences based on when, which may be set to either always, auto, or never.
+
+             always will make ls always output color.  If TERM is unset or set to an invalid terminal, then ls will fall back to explicit ANSI escape
+             sequences without the help of termcap(5).  always is the default if --color is specified without an argument.
+
+             auto will make ls output escape sequences based on termcap(5), but only if stdout is a tty and either the -G flag is specified or the COLORTERM
+             environment variable is set and not empty.
+
+             never will disable color regardless of environment variables.  never is the default when neither --color nor -G is specified.
+
+             For compatibility with GNU coreutils, ls supports yes or force as equivalent to always, no or none as equivalent to never, and tty or if-tty as
+             equivalent to auto.
+
+     -d      Directories are listed as plain files (not searched recursively).
+
+     -e      Print the Access Control List (ACL) associated with the file, if present, in long (-l) output.
+
+     -f      Output is not sorted.  This option turns on -a.  It also negates the effect of the -r, -S and -t options.  As allowed by IEEE Std 1003.1-2008
+             (“POSIX.1”), this option has no effect on the -d, -l, -R and -s options.
+
+     -g      This option has no effect.  It is only available for compatibility with 4.3BSD, where it was used to display the group name in the long (-l)
+             format output.  This option is incompatible with IEEE Std 1003.1-2008 (“POSIX.1”).
+
+     -h      When used with the -l option, use unit suffixes: Byte, Kilobyte, Megabyte, Gigabyte, Terabyte and Petabyte in order to reduce the number of
+             digits to four or fewer using base 2 for sizes.  This option is not defined in IEEE Std 1003.1-2008 (“POSIX.1”).
+
+     -i      For each file, print the file's file serial number (inode number).
+
+     -k      This has the same effect as setting environment variable BLOCKSIZE to 1024, except that it also nullifies any -h options to its left.
+
+     -l      (The lowercase letter “ell”.) List files in the long format, as described in the The Long Format subsection below.
+
+     -m      Stream output format; list files across the page, separated by commas.
+
+     -n      Display user and group IDs numerically rather than converting to a user or group name in a long (-l) output.  This option turns on the -l
+             option.
+
+     -o      List in long format, but omit the group id.
+
+     -p      Write a slash (‘/’) after each filename if that file is a directory.
+
+     -q      Force printing of non-graphic characters in file names as the character ‘?’; this is the default when output is to a terminal.
+
+     -r      Reverse the order of the sort.
+
+     -s      Display the number of blocks used in the file system by each file.  Block sizes and directory totals are handled as described in The Long
+             Format subsection below, except (if the long format is not also requested) the directory totals are not output when the output is in a single
+             column, even if multi-column output is requested.  (-l) format, display complete time information for the file, including month, day, hour,
+             minute, second, and year.  The -D option gives even more control over the output format.  This option is not defined in IEEE Std 1003.1-2008
+             (“POSIX.1”).
+
+     -t      Sort by descending time modified (most recently modified first).  If two files have the same modification timestamp, sort their names in
+             ascending lexicographical order.  The -r option reverses both of these sort orders.
+
+             Note that these sort orders are contradictory: the time sequence is in descending order, the lexicographical sort is in ascending order.  This
+             behavior is mandated by IEEE Std 1003.2 (“POSIX.2”).  This feature can cause problems listing files stored with sequential names on FAT file
+             systems, such as from digital cameras, where it is possible to have more than one image with the same timestamp.  In such a case, the photos
+             cannot be listed in the sequence in which they were taken.  To ensure the same sort order for time and for lexicographical sorting, set the
+             environment variable LS_SAMESORT or use the -y option.  This causes ls to reverse the lexicographical sort order when sorting files with the
+             same modification timestamp.
+
+     -u      Use time of last access, instead of time of last modification of the file for sorting (-t) or long printing (-l).
+
+     -v      Force unedited printing of non-graphic characters; this is the default when output is not to a terminal.
+
+     -w      Force raw printing of non-printable characters.  This is the default when output is not to a terminal.  This option is not defined in IEEE Std
+             1003.1-2001 (“POSIX.1”).
+
+     -x      The same as -C, except that the multi-column output is produced with entries sorted across, rather than down, the columns.
+
+     -y      When the -t option is set, sort the alphabetical output in the same order as the time output.  This has the same effect as setting LS_SAMESORT.
+             See the description of the -t option for more details.  This option is not defined in IEEE Std 1003.1-2001 (“POSIX.1”).
+
+     -%      Distinguish dataless files and directories with a '%' character in long (-l) output, and don't materialize dataless directories when listing
+             them.
+
+     -1      (The numeric digit “one”.) Force output to be one entry per line.  This is the default when output is not to a terminal.
+
+     -,      (Comma) When the -l option is set, print file sizes grouped and separated by thousands using the non-monetary separator returned by
+             localeconv(3), typically a comma or period.  If no locale is set, or the locale does not have a non-monetary separator, this option has no
+             effect.  This option is not defined in IEEE Std 1003.1-2001 (“POSIX.1”).
+
+     The -1, -C, -x, and -l options all override each other; the last one specified determines the format used.
+
+     The -c, -u, and -U options all override each other; the last one specified determines the file time used.
+
+     The -S and -t options override each other; the last one specified determines the sort order used.
+
+     The -B, -b, -w, and -q options all override each other; the last one specified determines the format used for non-printable characters.
+
+     The -H, -L and -P options all override each other (either partially or fully); they are applied in the order specified.
+
+     By default, ls lists one entry per line to standard output; the exceptions are to terminals or when the -C or -x options are specified.
+
+     File information is displayed with one or more ⟨blank⟩s separating the information associated with the -i, -s, and -l options.
+	  
+     -la     Combining to display all files and directories (including hidden files) in long format.
+
+     -lat    Displaying all files and directories (including hidden files) sorted by most recently modified time.
+
+     -lt     Displaying all files and directories (excluding hidden files) sorted by most recently modified time.
+
+     -lS     Displaying all files and directories (excluding hidden files) sorted by size.
+
+     -lh     Displaying files and directories with human-readable file sizes.
+
+     . . . . .
+
+Question: List some other popular Linux shells and describe their highlighted features.
+	Bourne Shell (sh):
+		Basic command execution to execute individual commands.
+
+		Shell scripting capabilities for creating scripts and automating tasks.
+
+	C Shell (csh):
+		C-like syntax for familiarity with C programmers.
+
+		Command-line completion for easy command input.
+
+		Command history for convenient command recall.
+
+		Job control for managing and manipulating processes.
+
+	Tenex C Shell (tcsh):
+		Command-line editing for convenient command manipulation.
+
+		Command history for recalling previous commands.
+
+		Programmable completion for easy command input.
+
+		C-like syntax for familiarity.
+
+	Korn Shell (ksh)
+		Command-line editing for efficient command manipulation.
+
+		Command history for quick access to previous commands.
+
+		Job control for managing running processes.
+
+		Advanced scripting features such as arrays, functions, and I/O redirection.
+
+		Variables, loops, and conditional statements for creating complex scripts.
+
+	Bourne Again Shell (bash):
+		Command-line editing and completion for efficient input.
+
+		Command history for easy recall and execution of previous commands.
+
+		Job control to manage and manipulate running processes.
+
+		Powerful scripting capabilities for automation and complex tasks.
+
+		Extensive support for environment variables to customize the shell environment.
+
+In addition to the common shells mentioned above, several notable shells cater to specific needs:
+	Z Shell (zsh):
+		Offering advanced command-line editing, spell correction, powerful scripting capabilities, and extensive customization options, 
+		
+		Zsh stands as a versatile choice for power users.
+
+	Debian Almquist Shell (dash):
+		Known for its lightweight and fast performance, Dash often serves as the default /bin/sh shell on Debian-based systems.
+
+	Friendly Interactive SHell (fish):
+		Emphasizing simplicity and user-friendliness, Fish provides features such as autosuggestions, syntax highlighting, and a powerful scripting language.
+	
+	PowerShell: 
+		Developed by Microsoft, PowerShell offers an object-oriented approach, extensive command support (cmdlets), and seamless integration with the .NET framework.
+
+	Elvish: 
+		An innovative and expressive shell featuring a powerful scripting language, interactive autocompletion, and error handling, Elvish presents a modern alternative.
+
+Question: Compare the Output Redirection (>/>>) with the Piping (|) technique.
+	Output redirection is used to save the output of a command to a file or device, while piping is used to pass the output of one command as input to another command.
+	
+	Output redirection writes or appends data to a file, while piping passes data between commands in memory.
+	
+	Output redirection is useful for saving command output for later use, while piping is useful for creating chains of commands to perform more complex operations.
+
+Question: Compare the sudo and the su command.
+Su
+	Pros:
+		Provides complete root access to the user, allowing them to perform any task.
+
+		Straightforward and easy to use.
+
+		Useful for short and simple tasks that require full root access.
+
+		No need for additional configuration or setup.
+	Cons:
+		Risky since any mistakes made while operating under root privileges can cause severe damage to the system.
+
+		No granular control over permissions, leading to potential security vulnerabilities.
+
+		Requires logging in and out of the root account, leading to potential human error.
+
+		Insecure since the user's password is shared between multiple users with root access.
+		
+Sudo
+	Pros:
+		Offers granular control over permissions, reducing the risk of unauthorized access or accidental damage.
+
+		Provides an audit trail of user actions for accountability.
+
+		More secure since users do not have full root access, reducing the risk of damage caused by human error.
+
+		It is easy to set up and configure, making it suitable for small and large organizations.
+	Cons:
+		Complex to configure in larger organizations, requiring more time and effort.
+
+		More complicated than "su" for simple tasks.
+
+		The risk of granting too many permissions to users leads to potential security vulnerabilities.
+
+		The user must have prior permission from the system administrator to use "sudo".
+
+Question: Discuss about the 777 permission on critical services (web hostings, sensitive databases,...).
+	In the realm of Unix-based operating systems like Linux, permissions are a crucial aspect of system security. The 777 permission set is often referred to as "full permissions" or "world-writable" because it grants read, write, and execute permissions to the owner, group, and all other users on the system. However, giving 777 permissions to critical services, such as web hosting directories or sensitive databases, is generally considered a security risk and should be avoided whenever possible. Here's why:
+
+		Security Vulnerabilities: Granting full permissions means that any user on the system can modify or delete files within that directory. This opens up opportunities for malicious actors to manipulate critical files, inject malware, or tamper with configurations, potentially compromising the integrity and security of the service.
+
+		Data Leakage: Sensitive databases often contain confidential information, such as user credentials, personal data, or proprietary business information. Allowing unrestricted access to these databases increases the risk of unauthorized access or data leakage, leading to breaches and regulatory compliance issues.
+
+		System Stability: Full permissions can inadvertently lead to unintended modifications or deletions of critical system files or configurations. This can destabilize the system or cause services to malfunction, resulting in downtime and potential loss of revenue or productivity.
+
+		Compliance Concerns: Many industries have regulatory requirements or compliance standards (such as GDPR, HIPAA, or PCI DSS) that mandate strict access controls and data protection measures. Granting 777 permissions can violate these requirements and expose organizations to legal liabilities and penalties.
+
+		Principle of Least Privilege: The principle of least privilege states that users or processes should only have the minimum level of access necessary to perform their tasks. Granting full permissions to critical services violates this principle and increases the attack surface by providing unnecessary access to potential attackers.
+
+	To mitigate these risks, it's essential to adhere to best practices for permission management:
+		- Use the principle of least privilege to grant permissions only as needed for specific tasks.
+
+		- Employ role-based access control (RBAC) to assign permissions based on users' roles and responsibilities.
+
+		- Regularly audit and review permissions to ensure they align with security policies and regulatory requirements.
+
+		- Implement strong authentication mechanisms and encryption protocols to protect sensitive data.
+
+		- Utilize tools such as file integrity monitoring systems to detect unauthorized changes to critical files and configurations.
+
+	In summary, while 777 permissions might offer convenience in certain scenarios, they pose significant security risks when applied to critical services. It's crucial for organizations to prioritize security and adopt robust permission management practices to safeguard their systems and data from potential threats.
+
+Question: 
+1. What are the advantages of Makefile? Give examples? 
+	Automating Compilation: A Makefile automates the compilation process. It defines rules for compiling source files into object files and linking them into an executable. Developers can simply run make to build the entire project, and Makefile ensures that only the necessary files are recompiled when source code changes.
+
+	Managing Dependencies: Makefiles allow you to specify dependencies between files. If a source file changes, Makefile knows which other files depend on it and rebuilds only the necessary parts of the project, saving compilation time.
+
+	Managing Consistency: Makefiles provide a standardized and reproducible way to build a project, reducing build-related errors and inconsistencies among team members.
+
+	Cross-Platform Compatibility: With a well-written Makefile, a project can be built on various platforms without significant modifications to the build process.
+
+	Flexibility and Customization: Makefiles allow you to tailor the build process to your project's specific needs, whether it's debugging, profiling, or generating different versions of the program.
+
+	Incremental Builds: Makefiles support incremental builds. They track changes in source files and only recompile what's necessary, improving development speed.
+		
+	Examples: Saved in the TruongAnKhang_2211476_L01_LAP1.zip file, which contains a folder named QuestionMakefile
+	
+2. Compiling a program in the first time usually takes a longer time in comparison with the next re-compiling. What is the reason? 
+	Complexity of the code: Larger programs often have more complex code with a greater number of interdependencies, which can take longer to compile.
+
+	Number of files: A large program typically consists of many source files, each of which must be compiled separately. The time required to compile each file is added to the overall compilation time.
+
+	Optimizations: Compilers often perform various optimizations on the code, such as inlining functions, loop unrolling, and vectorization. These optimizations can take a long time to perform, especially for large programs.
+
+	Dependencies: A large program often has many dependencies on external libraries, which must be recompiled along with the program if they change. This can add to the overall compilation time.
+
+	Disk I/O: Compiling large programs can be disk-intensive, as the compiler needs to access a large number of files and write out the compiled output. Slow disk access can slow down the compilation process.
+
+	CPU and memory limitations: Compiling large programs can require a large amount of CPU time and memory. If the computer running the compiler does not have enough CPU cores or memory, the compilation process may take longer.
+
+	There are various ways to reduce the time it takes to compile large programs, such as using faster hardware, parallelizing the compilation process, and reducing the complexity of the code. Additionally, some compilers offer incremental compilation, which allows you to only recompile the parts of the program that have changed, rather than the entire program, which can also speed up the compilation process.
+
+3. Is there any Makefile mechanism for other programming languages? If it has, give an example?
+	Yes, Makefiles can be used with various programming languages (Python, Ruby, CSS, Java,…) , not just C or C++.
+
+	Exemple: Saved in the TruongAnKhang_2211476_L01_LAP1.zip file, which contains a folder named QuestionPy
+
+3.6 PRACTICE EXERCISE
+	Saved in the TruongAnKhang_2211476_L01_LAP1.zip file, which contains a folder named Excercise_3.6
+
+5.3 EXERCISE
+	Saved in the TruongAnKhang_2211476_L01_LAP1.zip file, which contains a folder named Excercise_5.3
+
+ 
+
+
+
+
+
